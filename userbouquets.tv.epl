@@ -1,0 +1,4 @@
+#NAME User - bouquets (TV)
+#SERVICE: 4097:7:0:dbe00:0:0:0:0:0:0:/var/tuxbox/config/enigma/userbouquet.dbe00.tv
+#TYPE 16385
+/var/tuxbox/config/enigma/userbouquet.dbe00.tv
