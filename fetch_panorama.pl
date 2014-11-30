@@ -53,12 +53,75 @@ while ($source=~/href="\/pid2640-chaine\.html\?chaine=(\d+)".+?title="(.+?)"/gm)
                 if($canal eq "FOOT+"){ $canal="FOOT+ 24/24"; }
                 if($canal eq "CANALPLUS A LA DEMANDE"){ $canal="C+ DEMANDE"; }
                 if($canal eq "CANALSAT A LA DEMANDE"){ $canal="CSAT DEMANDE"; }
+                if($canal eq "NRJ12"){ $canal="NRJ 12"; }
+                if($canal eq "Paris Première"){ $canal="PARIS PREMIERE"; }
+                if($canal eq "Piwi +"){ $canal="PIWI+"; }
+		if($canal eq "Paramount Channel"){ $canal="PARAMOUNT CHANNEL HD"; }
+		if($canal eq "OCS Max"){ $canal="OCS MAX HD"; }
+		if($canal eq "OCS City"){ $canal="OCS CITY HD"; }
+		if($canal eq "OCS Choc"){ $canal="OCS CHOC HD"; }
+		if($canal eq "OCS Geants"){ $canal="OCS GEANTS HD"; }
+		if($canal eq "CINE FX"){ $canal="CINE FX HD"; }
+		if($canal eq "13ème Rue"){ $canal="13EME RUE"; }
+		if($canal eq "Comédie +"){ $canal="COMEDIE+"; }
+		if($canal eq "MTV"){ $canal="MTV FRANCE"; }
+		if($canal eq "June TV"){ $canal="JUNE"; }
+		if($canal eq "Action"){ $canal="ACTION HD"; }
+		if($canal eq "Planète +"){ $canal="PLANETE+"; }
+		if($canal eq "Planète + Thalassa"){ $canal="PLANETE+ THALASSA"; }
+		if($canal eq "Planète + CI"){ $canal="PLANETE+ CI"; }
+		if($canal eq "Planète + A&E"){ $canal="PLANETE+ A&E"; }
+		if($canal eq "Disney CINEmagic +1"){ $canal="DISNEY MAGIC+1"; }
+		if($canal eq "Discovery Science"){ $canal="DISCOVERY SCIENCE HD"; }
+		if($canal eq "National Geographic Channel"){ $canal="NATIONAL GEO"; }
+		if($canal eq "Nat Geo Wild"){ $canal="NAT GEO WILD HD"; }
+		if($canal eq "Animaux - chaine en option"){ $canal="ANIMAUX HD"; }
+		if($canal eq "Escales - chaine en option"){ $canal="ESCALES"; }
+		if($canal eq "Encyclo - chaine en option"){ $canal="ENCYCLO"; }
+		if($canal eq "Seasons - chaine en option"){ $canal="SEASONS"; }
+		if($canal eq "RMC Découverte"){ $canal="RMC Decouverte"; }
+		if($canal eq "TéléToon +"){ $canal="TELETOON+"; }
+		if($canal eq "TéléToon +1"){ $canal="TELETOON+1"; }
+		if($canal eq "E !"){ $canal="E!"; }
+		if($canal eq "Téva"){ $canal="TEVA"; }
+		if($canal eq "France4"){ $canal="FRANCE 4"; }
+		if($canal eq "France O"){ $canal="FRANCE Ô"; }
+		if($canal eq "TV5 Monde"){ $canal="TV5MONDE EUROPE"; }
+		if($canal eq "Bein Sports 1 - chaine en option"){ $canal="beIN SPORTS 1 HD"; }
+		if($canal eq "Bein Sports 2 - chaine en option"){ $canal="beIN SPORTS 2 HD"; }
+		if($canal eq "Golf + - chaine en option"){ $canal="GOLF+ HD"; }
+		if($canal eq "Extreme Sports Channel - chaine en option"){ $canal="EXTREME SPORTS"; }
+		if($canal eq "AB Moteurs - chaine en option"){ $canal="AB MOTEURS"; }
+		if($canal eq "L'Equipe 21"){ $canal="L EQUIPE 21"; }
+		if($canal eq "Kombat Sport"){ $canal="KOMBAT SPORT HD"; }
+		if($canal eq "Girondons TV"){ $canal="GIRONDINS TV"; }
+		if($canal eq "Infosport +"){ $canal="INFOSPORT+"; }
+		if($canal eq "MTV Base"){ $canal="MTV BASE HD"; }
+		if($canal eq "MTV Pulse"){ $canal="MTV PULSE HD"; }
+		if($canal eq "MTV Idol"){ $canal="MTV IDOL HD"; }
+		if($canal eq "Brava HDTV"){ $canal="BRAVA HD"; }
+		if($canal eq "M6 Music Player - chaine en option"){ $canal="M6 MUSIC PLAYER"; }
+		if($canal eq "Mezzo - chaine en option"){ $canal="MEZZO"; }
+		if($canal eq "DJazz TV - chaine en option"){ $canal="DJAZZ.TV HD"; }
+		if($canal eq "Maison +"){ $canal="MAISON+"; }
+		if($canal eq "La Chaine Météo"){ $canal="LA CHAINE METEO"; }
+		if($canal eq "iTELE"){ $canal="I>TELE"; }
+		if($canal eq "LCP - Public Sénat"){ $canal="LCP"; }
+		if($canal eq "CNN"){ $canal="CNN Int."; }
+		if($canal eq "BBC World News"){ $canal="BBC World"; }
+		if($canal eq "Série Club"){ $canal="SERIE CLUB"; }
+		if($canal eq "Non Stop People"){ $canal="NON STOP PEOPLE HD"; }
+		if($canal eq "J One"){ $canal="J-ONE HD"; }
+		if($canal eq "Numéro 23"){ $canal="NUMERO 23"; }
+		if($canal eq "Cuisine +"){ $canal="CUISINE+"; }
+
 		$canal=~s/Ciné/CINE/;
                 my $line = `grep -i '^$canal;' channels-vdr-fr.conf|head -n 1`;
                 if($line ne ""){
 			$entries[$canal_number]=$line;
                 } else {
-			print STDERR "# MISSING CHANNEL FOR $canal\n";
+			# print STDERR "# MISSING CHANNEL FOR $canal\n";
+			print STDERR '# if($canal eq "'.$canal.'"){ $canal=""; }'."\n";
                 }
 		}
         }
