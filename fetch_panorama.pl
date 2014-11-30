@@ -103,8 +103,7 @@ while ($source=~/href="\/pid2640-chaine\.html\?chaine=(\d+)".+?title="(.+?)"/gm)
                 if($line ne ""){
 			$entries[$canal_number]=$line;
                 } else {
-			$canal="$canal HD";
-                	my $line = `grep -i '^$canal;' channels-vdr-fr.conf|head -n 1`;
+                	my $line = `grep -i '^$canal HD;' channels-vdr-fr.conf|head -n 1`;
                 	if($line ne ""){
 				$entries[$canal_number]=$line;
                 	} else {
